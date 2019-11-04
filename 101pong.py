@@ -42,7 +42,8 @@ def main():
         produit_scalaire = vect_u1 * vect_v1 + vect_u2 * vect_v2 + vect_u3 * vect_v3
         norme_vect = sqrt((vect_u1**2)+(vect_u2**2)+(vect_u3)**2) * sqrt((vect_v1**2)+(vect_v2**2)+(vect_v3)**2)
         angle_incidence = produit_scalaire / norme_vect
-        print("The incidence angle is: \n", angle_incidence)
+        print ("The incidence angle is :")
+        print ("%.2f degrees" % angle_incidence)
 def help():
         print(" USAGE")
         print("    ./101pong x0 y0 z0 x1 y1 z1 n\n")
