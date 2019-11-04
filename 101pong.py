@@ -36,6 +36,15 @@ def main():
         Z4 = z1 + V3 * 4
         print("At time t + 4, ball coordinates will be:")
         print ("(%.2f, %.2f, %.2f)" %(X4, Y4, Z4))
+        if X4 > 30:
+            print("The ball won't reach the paddle.")
+            sys.exit(0)
+        if Y4 > 30:
+            print("The ball won't reach the paddle.")
+            sys.exit(0)
+        if Z4 < -30:
+            print("The ball won't reach the paddle.")
+            sys.exit(0)
         vect_u1 = X4 - x1
         vect_u2 = Y4 - y1
         vect_u3 = Z4 - z1
@@ -50,7 +59,7 @@ def help():
         print(" DESCRIPTION")
         print("     x0  ball abscissa at time t - 1")
         print("     y0  ball ordinate at time t - 1")
-        print("     z0  ball ordinate at time t - 1")
+        print("     z0  ball ordinate at 0time t - 1")
         print("     x1  ball abscissa at time t")
         print("     y1  ball ordinate at time t")
         print("     z1  ball altitude at time t")
