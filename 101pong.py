@@ -8,8 +8,8 @@ def main():
     else:
         argv = sys.argv
         vect_v1 = 3
-        vect_v2 = 0
-        vect_v3 = 0
+        vect_v2 = 3
+        vect_v3 = -3
         try :
             x0, y0, z0 = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3])
             x1, y1, z1 = float(sys.argv[4]), float(sys.argv[5]), float(sys.argv[6])
@@ -22,28 +22,29 @@ def main():
         V3 = z1 - z0
         print ("The velocity vector of the ball is:")
         print ("(%.2f, %.2f, %.2f)" %(V1, V2, V3))
-        X4 = x1 + V1 * 4
-        Y4 = y1 + V2 * 4
-        Z4 = z1 + V3 * 4
+        x4 = x1 + V1 * 4
+        y4 = y1 + V2 * 4
+        z4 = z1 + V3 * 4
         print("At time t + 4, ball coordinates will be:")
-        print ("(%.2f, %.2f, %.2f)" %(X4, Y4, Z4))
-        if X4 > 30: # changer condition car incorrecte -> lorsque le calcul avec vecteur_v x = 0
-            print("The ball won't reach the paddle.")
+        print ("(%.2f, %.2f, %.2f)" %(x4, y4, z4))
+        if ((z1 - z0 == 0) & (z1 != 0)):
+            print ("The ball won't reach the paddle.")
             sys.exit(0)
-        if Y4 > 30: # changer condition car incorrecte -> lorsque le calcul avec vecteur_v y = 0
-            print("The ball won't reach the paddle.")
+        if (-z1/(z1-z0) < 0):
+            print ("The ball won't reach the paddle.")
             sys.exit(0)
-        if Z4 < -30: # changer condition car incorrecte -> lorsque le calcul avec vecteur_v z = 0
-            print("The ball won't reach the paddle.")
+        vect_u1 = x1 - x0
+        vect_u2 = y1 - y0
+        vect_u3 = z1 - z0
+        produit_scalaire = vect_u1 + vect_u2 + vect_u3
+        norme_vect = sqrt((vect_u1**2) + (vect_u2**2) + (vect_u3**2))
+        #ang = 90 - (produit_scalaire / norme_vect)
+        ang = 90 - ((cos(V3) / sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2))) * 180)
+        if (ang == 0):
+            print ("The ball won't reach the paddle.")
             sys.exit(0)
-        vect_u1 = X4 - x1
-        vect_u2 = Y4 - y1
-        vect_u3 = Z4 - z1
-        produit_scalaire = vect_u1 * vect_v1 + vect_u2 * vect_v2 + vect_u3 * vect_v3
-        norme_vect = sqrt((vect_u1**2) + (vect_u2**2) + (vect_u3)**2) * sqrt((vect_v1**2) + (vect_v2**2) + (vect_v3)**2)
-        angle_incidence = produit_scalaire / norme_vect
         print ("The incidence angle is :")
-        print ("%.2f degrees" % angle_incidence)
+        print ("%.2f degrees" % ang)
 def help():
         print(" USAGE")
         print("    ./101pong x0 y0 z0 x1 y1 z1 n\n")
