@@ -4,12 +4,6 @@ from math import *
 
 def main():
     argv = sys.argv
-    V1 = 0
-    V2 = 0
-    V3 = 0
-    X4 = 0
-    Y4 = 0
-    Z4 = 0
     vect_u1  = 0
     vect_u2  = 0
     vect_u3  = 0
@@ -36,20 +30,20 @@ def main():
         Z4 = z1 + V3 * 4
         print("At time t + 4, ball coordinates will be:")
         print ("(%.2f, %.2f, %.2f)" %(X4, Y4, Z4))
-        if X4 > 30:
+        if X4 > 30: # changer condition car incorrecte -> lorsque le calcul avec vecteur_v x = 0
             print("The ball won't reach the paddle.")
             sys.exit(0)
-        if Y4 > 30:
+        if Y4 > 30: # changer condition car incorrecte -> lorsque le calcul avec vecteur_v y = 0
             print("The ball won't reach the paddle.")
             sys.exit(0)
-        if Z4 < -30:
+        if Z4 < -30: # changer condition car incorrecte -> lorsque le calcul avec vecteur_v z = 0
             print("The ball won't reach the paddle.")
             sys.exit(0)
         vect_u1 = X4 - x1
         vect_u2 = Y4 - y1
         vect_u3 = Z4 - z1
         produit_scalaire = vect_u1 * vect_v1 + vect_u2 * vect_v2 + vect_u3 * vect_v3
-        norme_vect = sqrt((vect_u1**2)+(vect_u2**2)+(vect_u3)**2) * sqrt((vect_v1**2)+(vect_v2**2)+(vect_v3)**2)
+        norme_vect = sqrt((vect_u1**2) + (vect_u2**2) + (vect_u3)**2) * sqrt((vect_v1**2) + (vect_v2**2) + (vect_v3)**2)
         angle_incidence = produit_scalaire / norme_vect
         print ("The incidence angle is :")
         print ("%.2f degrees" % angle_incidence)
@@ -59,7 +53,7 @@ def help():
         print(" DESCRIPTION")
         print("     x0  ball abscissa at time t - 1")
         print("     y0  ball ordinate at time t - 1")
-        print("     z0  ball ordinate at 0time t - 1")
+        print("     z0  ball altitude at time t - 1")
         print("     x1  ball abscissa at time t")
         print("     y1  ball ordinate at time t")
         print("     z1  ball altitude at time t")
