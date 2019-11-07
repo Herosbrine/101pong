@@ -27,22 +27,21 @@ def main():
         z4 = z1 + V3 * 4
         print("At time t + 4, ball coordinates will be:")
         print ("(%.2f, %.2f, %.2f)" %(x4, y4, z4))
+        
+        produit_scalaire = sqrt(pow(V1, 2) + pow(V2, 2) + pow(V3, 2))
+        ang = 90 - (acos((abs(V3)) / produit_scalaire)) * 180 / pi
+
+        #gestion du cas 'si la balle ne touche pas le plan'
         if ((z1 - z0 == 0) & (z1 != 0)):
             print ("The ball won't reach the paddle.")
             sys.exit(0)
         if (-z1/(z1-z0) < 0):
             print ("The ball won't reach the paddle.")
-            sys.exit(0)
-        vect_u1 = x1 - x0
-        vect_u2 = y1 - y0
-        vect_u3 = z1 - z0
-        produit_scalaire = vect_u1 + vect_u2 + vect_u3
-        norme_vect = sqrt((vect_u1**2) + (vect_u2**2) + (vect_u3**2))
-        #ang = 90 - (produit_scalaire / norme_vect)
-        ang = 90 - ((cos(V3) / sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2))) * 180)
+            sys.exit(0)   
         if (ang == 0):
             print ("The ball won't reach the paddle.")
             sys.exit(0)
+
         print ("The incidence angle is :")
         print ("%.2f degrees" % ang)
 def help():
