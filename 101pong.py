@@ -3,10 +3,14 @@ import sys
 from math import *
 
 def main():
-    if len(sys.argv) != 8:
+    argv = sys.argv
+    if argv[1] == '-h':
         help()
+        sys.exit(0)
+    if len(sys.argv) != 8:
+        return (84)
+        sys.exit(0)
     else:
-        argv = sys.argv
         vect_v1 = 3
         vect_v2 = 3
         vect_v3 = -3
