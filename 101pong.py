@@ -8,8 +8,7 @@ def main():
         help()
         sys.exit(0)
     if len(sys.argv) != 8:
-        return (84)
-        sys.exit(0)
+        sys.exit(84)
     else:
         vect_v1 = 3
         vect_v2 = 3
