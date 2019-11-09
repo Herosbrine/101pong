@@ -10,9 +10,6 @@ def main():
     if len(sys.argv) != 8:
         sys.exit(84)
     else:
-        vect_v1 = 3
-        vect_v2 = 3
-        vect_v3 = -3
         try :
             x0, y0, z0 = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3])
             x1, y1, z1 = float(sys.argv[4]), float(sys.argv[5]), float(sys.argv[6])
@@ -33,19 +30,17 @@ def main():
         
         produit_scalaire = sqrt(pow(V1, 2) + pow(V2, 2) + pow(V3, 2))
         ang = 90 - (acos((abs(V3)) / produit_scalaire)) * 180 / pi
-
-        #gestion du cas 'si la balle ne touche pas le plan'
         if ((z1 - z0 == 0) & (z1 != 0)):
-            print ("The ball won't reach the paddle.")
+            print ("The ball won’t reach the paddle.")
             sys.exit(0)
         if (-z1/(z1-z0) < 0):
-            print ("The ball won't reach the paddle.")
+            print ("The ball won’t reach the paddle.")
             sys.exit(0)   
         if (ang == 0):
-            print ("The ball won't reach the paddle.")
+            print ("The ball won’t reach the paddle.")
             sys.exit(0)
 
-        print ("The incidence angle is :")
+        print ("The incidence angle is:")
         print ("%.2f degrees" % ang)
 def help():
         print(" USAGE")
