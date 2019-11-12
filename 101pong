@@ -6,7 +6,7 @@ def main():
     argv = sys.argv
     if len(sys.argv) == 1:
         sys.exit(84)
-    if argv[1] == '-h':
+    if argv[1] == '-h' and sys.argv == 2:
         help()
         sys.exit(0)
     if len(sys.argv) != 8:
@@ -17,7 +17,6 @@ def main():
             x1, y1, z1 = float(sys.argv[4]), float(sys.argv[5]), float(sys.argv[6])
             n = int(sys.argv[7])
         except ValueError:
-            help()
             sys.exit(84)
         V1 = x1 - x0
         V2 = y1 - y0
