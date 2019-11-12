@@ -4,6 +4,8 @@ from math import *
 
 def main():
     argv = sys.argv
+    if len(sys.argv) == 1:
+        sys.exit(84)
     if argv[1] == '-h':
         help()
         sys.exit(0)
@@ -17,7 +19,7 @@ def main():
         except ValueError:
             help()
             sys.exit(84)
-        V1 = x1 - x0 
+        V1 = x1 - x0
         V2 = y1 - y0
         V3 = z1 - z0
         print ("The velocity vector of the ball is:")
@@ -27,7 +29,7 @@ def main():
         z4 = z1 + V3 * 4
         print("At time t + 4, ball coordinates will be:")
         print ("(%.2f, %.2f, %.2f)" %(x4, y4, z4))
-        
+
         produit_scalaire = sqrt(pow(V1, 2) + pow(V2, 2) + pow(V3, 2))
         ang = 90 - (acos((abs(V3)) / produit_scalaire)) * 180 / pi
         if ((z1 - z0 == 0) & (z1 != 0)):
@@ -52,6 +54,6 @@ def help():
         print("     x1  ball abscissa at time t")
         print("     y1  ball ordinate at time t")
         print("     z1  ball altitude at time t")
-        print("     n   time shift (greater than or equal to zero, integer)") 
+        print("     n   time shift (greater than or equal to zero, integer)")
 if __name__ == "__main__":
     main()
