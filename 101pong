@@ -6,7 +6,7 @@ def main():
     argv = sys.argv
     if len(sys.argv) == 1:
         sys.exit(84)
-    if argv[1] == '-h' and sys.argv == 2:
+    if argv[1] == '-h' and len(sys.argv) == 2:
         help()
         sys.exit(0)
     if len(sys.argv) != 8:
