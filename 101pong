@@ -23,23 +23,26 @@ def main():
         V3 = z1 - z0
         print ("The velocity vector of the ball is:")
         print ("(%.2f, %.2f, %.2f)" %(V1, V2, V3))
-        x4 = x1 + V1 * 4
-        y4 = y1 + V2 * 4
-        z4 = z1 + V3 * 4
-        print("At time t + 4, ball coordinates will be:")
+        x4 = x1 + V1 * n
+        y4 = y1 + V2 * n
+        z4 = z1 + V3 * n
+        print("At time t + {0}, ball coordinates will be:".format(n))
         print ("(%.2f, %.2f, %.2f)" %(x4, y4, z4))
 
-        produit_scalaire = sqrt(pow(V1, 2) + pow(V2, 2) + pow(V3, 2))
+        produit_scalaire = sqrt(abs(pow(V1, 2) + pow(V2, 2) + pow(V3, 2)))
+        if (produit_scalaire == 0):
+            print ("The ball won't reach the paddle.")
+            sys.exit(84)
         ang = 90 - (acos((abs(V3)) / produit_scalaire)) * 180 / pi
         if ((z1 - z0 == 0) & (z1 != 0)):
             print ("The ball won't reach the paddle.")
             sys.exit(0)
         if (-z1/(z1-z0) < 0):
             print ("The ball won't reach the paddle.")
-            sys.exit(0)   
+            sys.exit(0)
         if (ang == 0):
             print ("The ball won't reach the paddle.")
-            sys.exit(0)
+            sys.exit(84)
 
         print ("The incidence angle is:")
         print ("%.2f degrees" % ang)
