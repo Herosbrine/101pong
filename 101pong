@@ -40,7 +40,7 @@ def main():
         if (-z1/(z1-z0) < 0):
             print ("The ball won't reach the paddle.")
             sys.exit(0)
-        if (ang == 0):
+        if (ang == 0 and y0 != 0):
             print ("The ball won't reach the paddle.")
             sys.exit(84)
 
